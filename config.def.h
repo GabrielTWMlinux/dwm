@@ -14,7 +14,7 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 18;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "fontawesome:size=11" };
+static const char *fonts[]          = { "fontawesome:size=11:autohint=true" };
 static const char dmenufont[]       = "fontawesome:size=11";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -74,6 +74,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      spawn,          {.v = rangercmd } },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = browcmd } },
 	{ MODKEY,                       XK_F2,     spawn,         {.v = nautcmd } },
+	{ ShiftMask,                    XK_p,      spawn,          SHCMD("~/.config/Scripts/src-script") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("~/.config/Scripts/dmenu_power") },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("~/.config/Scripts/dmenu-files") },
 	{ ShiftMask,                    XK_m,      spawn,          SHCMD("~/.config/Scripts/volume+") },
