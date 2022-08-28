@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-#include "/home/gabriel/.config/dwm/themes/tokyo.h"
+#include "/home/gabriel/.config/dwm/themes/darkblue.h"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -19,7 +19,7 @@ static const char dmenufont[]       = "fontawesome:size=11";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray4, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray5, col_gray5  },
+	[SchemeSel]  = { col_gray4, col_gray5, col_gray3  },
 };
 
 /* tagging */

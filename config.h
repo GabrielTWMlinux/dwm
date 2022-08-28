@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-#include "/home/gabriel/.config/dwm/themes/catppuccin.h"
+#include "/home/gabriel/.config/dwm/themes/darkblue.h"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
