@@ -9,6 +9,8 @@ static const Block blocks[] = {
 
 	{"  ", "~/.config/Scripts/ram-bar",			5,		0},
 	
+	{"  ", "~/.config/Scripts/disk-bar",			3600,		0},
+
 	{"  ", "~/.config/Scripts/cpu-bar",			5,		0},
 
 	{"  ", "date '+%d %b %Y, %a %H:%M '",			30,		0},
