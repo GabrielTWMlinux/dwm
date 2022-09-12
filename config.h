@@ -66,6 +66,7 @@ static const char *rangercmd[] = { "st", "-e", "ranger" };
 static const char *browcmd[] = { "firefox", NULL };
 static const char *nautcmd[] = { "nautilus", NULL };
 static const char *htcmd[] = { "st", "-e", "htop" };
+static const char *ncspotcmd[] = { "st", "-e", "ncspot" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -73,7 +74,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      spawn,          {.v = htcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = rangercmd } },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = browcmd } },
-	{ MODKEY,                       XK_F2,     spawn,         {.v = nautcmd } },
+	{ MODKEY,                       XK_F2,     spawn,          {.v = nautcmd } },
+	{ MODKEY,                       XK_F3,     spawn,          {.v = ncspotcmd } },
 	{ ShiftMask,                    XK_p,      spawn,          SHCMD("~/.config/Scripts/src-script") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("~/.config/Scripts/dmenu_power") },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("~/.config/Scripts/dmenu-files") },
@@ -97,7 +99,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_z,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_n,      togglefloating, {0} },
+	{ MODKEY, 	                XK_n,      togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
