@@ -5,7 +5,7 @@ static const Block blocks[] = {
 
 	{"  ", "~/.config/Scripts/weather",			3600,		0},
 
-	{"  ", "~/.config/Scripts/volume-bar",			1,		0},
+	{"  ", "~/.config/Scripts/volume-bar",			0,		5},
 
 	{"  ", "~/.config/Scripts/ram-bar",			5,		0},
 	
