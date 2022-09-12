@@ -13,7 +13,7 @@ static const Block blocks[] = {
 
 	{"  ", "~/.config/Scripts/cpu-bar",			5,		0},
 
-	{"  ", "date '+%d %b %Y, %a %H:%M '",			30,		0},
+	{"  ", "~/.config/Scripts/clock-bar",			30,		0},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
