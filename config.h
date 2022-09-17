@@ -77,6 +77,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F2,     spawn,          {.v = nautcmd } },
 	{ MODKEY,                       XK_F3,     spawn,          {.v = ncspotcmd } },
 	{ ShiftMask,                    XK_p,      spawn,          SHCMD("~/.config/Scripts/src-script") },
+	{ ShiftMask,                    XK_w,      spawn,          SHCMD("~/.config/Scripts/wallpaper") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("~/.config/Scripts/dmenu_power") },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("~/.config/Scripts/dmenu-files") },
 	{ ShiftMask,                    XK_m,      spawn,          SHCMD("~/.config/Scripts/volume+") },
