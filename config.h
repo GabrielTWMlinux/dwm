@@ -13,8 +13,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 19;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "SymbolaRegular:size=9:autohint=true:antialias=true" , "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
+static const int user_bh            = 20;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const char *fonts[]          = { "SymbolaRegular:size=10:autohint=true:antialias=true" , "NotoColorEmoji:pixelsize=11:antialias=true:autohint=true" };
 static const char dmenufont[]       = "fontawesome:size=11";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -64,7 +64,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", " Run  ", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *rangercmd[] = { "st", "-e", "ranger" };
 static const char *browcmd[] = { "firefox", NULL };
-static const char *nautcmd[] = { "nautilus", NULL };
+static const char *pcmancmd[] = { "pcmanfm", NULL };
 static const char *htcmd[] = { "st", "-e", "htop" };
 static const char *ncspotcmd[] = { "st", "-e", "ncspot" };
 
@@ -74,7 +74,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      spawn,          {.v = htcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = rangercmd } },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = browcmd } },
-	{ MODKEY,                       XK_F2,     spawn,          {.v = nautcmd } },
+	{ MODKEY,                       XK_F2,     spawn,          {.v = pcmancmd } },
 	{ MODKEY,	                XK_n,      spawn,          {.v = ncspotcmd } },
 	{ ShiftMask,                    XK_p,      spawn,          SHCMD("~/.config/Scripts/dmenu/dmenu-src") },
 	{ ShiftMask,                    XK_w,      spawn,          SHCMD("~/.config/Scripts/wallpaper") },
