@@ -1,42 +1,43 @@
 /* See LICENSE file for copyright and license details. */
 
-#include "/home/gabriel/.config/dwm/themes/doom.h"
-
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 13;        /* gaps between windows */
+static const unsigned int gappx     = 35;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
-static const int showbar            = 1;        /* 0 means no bar */
+static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 23;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int user_bh            = 22;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = {  "JetBrains Mono Nerd Font:size=10:antialias=true:autohint=true", "FontAwesome:size=8:antialias=true:autohint=true" };
 static const char dmenufont[]       = "fontawesome:size=8";
+static const char col_gray1[]       = "#21252b";
+static const char col_gray2[]       = "#515662";
+static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray4[]       = "#eeeeee";
+static const char col_cyan[]        = "#3e4451";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray4, col_gray5, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray6, col_gray3 },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_gray2  },
 };
-
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-
 static const char *tagsel[][2] = {
-	{ "#FFFFFF", "#3e4451" },
-	{ "#FFFFFF", "#3e4451" },
-	{ "#FFFFFF", "#3e4451" },
-	{ "#FFFFFF", "#3e4451" },
-	{ "#FFFFFF", "#3e4451" },
-	{ "#FFFFFF", "#3e4451" },
-	{ "#FFFFFF", "#3e4451" },
-	{ "#FFFFFF", "#3e4451" },
-	{ "#FFFFFF", "#3e4451" },
+	{ "#ffffff", "#3e4451" },
+	{ "#ffffff", "#3e4451" },
+	{ "#ffffff", "#3e4451" },
+	{ "#ffffff", "#3e4451" },
+	{ "#ffffff", "#3e4451" },
+	{ "#ffffff", "#3e4451" },
+	{ "#ffffff", "#3e4451" },
+	{ "#ffffff", "#3e4451" },
+	{ "#ffffff", "#3e4451" },
 };
 
 static const Rule rules[] = {
@@ -45,15 +46,16 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Ranger",   NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
-
 /* layout(s) */
-static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -79,13 +81,13 @@ static const char *dmenucmd[] = { "dmenu_run", "-i", "-p" , " Run  ", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *rangercmd[] = { "st", "-e", "ranger" };
 static const char *browcmd[] = { "firefox", NULL };
-static const char *pcmancmd[] = { "pcmanfm", NULL };
+static const char *pcmancmd[] = { "nautilus", NULL };
 static const char *htcmd[] = { "st", "-e", "htop" };
 static const char *ncspotcmd[] = { "st", "-e", "ncspot" };
 
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
+/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_t,      spawn,          {.v = htcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = rangercmd } },
@@ -120,7 +122,6 @@ static const Key keys[] = {
 	{ ControlMask, 	                XK_F6,     setlayout,      {.v = &layouts[1]} },
 	{ ControlMask,                  XK_F7,     setlayout,      {.v = &layouts[2]} },
 	{ ControlMask, 	                XK_F8,     togglefloating, {0} },
-	{ ControlMask, 	                XK_F9,     togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_space,  focusmon,       {.i = -1 } },
@@ -128,6 +129,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_space,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -140,7 +144,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ShiftMask,		XK_r,      quit,           {1} }, 
 };
-
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
